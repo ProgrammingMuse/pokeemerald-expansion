@@ -560,16 +560,51 @@ Class: Aqua Admin
 Pic: Aqua Admin F
 Gender: Female
 Music: Aqua
-Double Battle: No
-AI: Basic Trainer
+Double Battle: Yes
+AI: Smart Trainer
 
-Carvanha
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Carvanha  
+Ability: Speed Boost  
+Level: 28  
+Tera Type: Water  
+Adamant Nature  
+IVs: 6 HP / 6 Def / 6 SpA / 6 SpD / 6 Spe  
+- Aqua Jet  
+- Crunch  
+- Liquidation  
+- Ice Fang  
 
-Mightyena
-Level: 28
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Mightyena  
+Ability: Intimidate  
+Level: 28  
+Tera Type: Dark  
+Adamant Nature  
+IVs: 6 HP / 6 Def / 6 SpA / 6 SpD / 6 Spe  
+- Crunch  
+- Fire Fang  
+- Ice Fang  
+- Thunder Fang  
+
+Katrina (Castform) (F) @ Mystic Water  
+Ability: Forecast  
+Level: 30  
+Tera Type: Normal  
+EVs: 252 SpA / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Weather Ball  
+- Sunny Day  
+- Solar Beam  
+- Rain Dance  
+
+Cacnea  
+Ability: Water Absorb  
+Level: 30  
+Tera Type: Grass  
+- Giga Drain  
+- Solar Beam  
+- Sucker Punch  
+- Poison Jab  
 
 === TRAINER_SHELLY_SEAFLOOR_CAVERN ===
 Name: SHELLY
@@ -578,15 +613,40 @@ Pic: Aqua Admin F
 Gender: Female
 Music: Aqua
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Sharpedo
-Level: 37
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Sharpedo  
+Ability: Speed Boost  
+Level: 37  
+Tera Type: Water  
+EVs: 252 Spe  
+Jolly Nature  
+IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Ice Fang  
+- Crunch  
+- Flip Turn  
+- Liquidation  
 
-Mightyena
-Level: 37
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Mightyena  
+Ability: Intimidate  
+Level: 37  
+Tera Type: Dark  
+Adamant Nature  
+IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Crunch  
+- Fire Fang  
+- Ice Fang  
+- Thunder Fang  
+
+Cacturne  
+Ability: Water Absorb  
+Level: 37  
+Tera Type: Grass  
+IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Dark Pulse  
+- Lunge  
+- Giga Drain  
+- Poison Jab  
 
 === TRAINER_ARCHIE ===
 Name: ARCHIE
@@ -596,7 +656,7 @@ Gender: Male
 Music: Aqua
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
 Mightyena
 Level: 41
@@ -4592,8 +4652,19 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer / Force Setup First Turn
+AI: Smart Trainer
 Mugshot: Purple
+
+Meowscarada  
+Ability: Protean  
+Level: 46  
+Shiny: Yes  
+Tera Type: Grass  
+Adamant Nature  
+- Flower Trick  
+- Knock Off  
+- Acrobatics  
+- U-turn  
 
 Mightyena
 Level: 46
@@ -4610,14 +4681,6 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Double Team
 - Swagger
 - Extrasensory
-
-Cacturne
-Level: 46
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Leech Seed
-- Feint Attack
-- Needle Arm
-- Cotton Spore
 
 Crawdaunt
 Level: 48
@@ -4643,7 +4706,7 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 Mugshot: Green
 
 Dusclops
@@ -4678,13 +4741,17 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Thunderbolt
 - Facade
 
-Dusclops @ Sitrus Berry
-Level: 51
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Shadow Ball
-- Ice Beam
-- Rock Slide
-- Earthquake
+Dusclops (F) @ Eviolite  
+Ability: Pressure  
+Level: 51  
+Tera Type: Ghost  
+EVs: 248 HP / 8 Def / 248 SpD  
+Calm Nature  
+IVs: 0 Atk  
+- Night Shade  
+- Will-O-Wisp  
+- Rest  
+- Sleep Talk
 
 === TRAINER_GLACIA ===
 Name: GLACIA
@@ -4694,16 +4761,20 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Force Setup First Turn
 Mugshot: Pink
 
-Sealeo
-Level: 50
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Ninetales-Alola @ Light Clay  
+Ability: Snow Warning  
+Level: 50  
+Tera Type: Ice  
+EVs: 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Aurora Veil  
+- Blizzard  
+- Moonblast  
 - Encore
-- Body Slam
-- Hail
-- Ice Ball
 
 Glalie
 Level: 50
@@ -4745,7 +4816,7 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 Mugshot: Blue
 
 Shelgon
@@ -4780,13 +4851,16 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Dragon Breath
 - Earthquake
 
-Salamence @ Sitrus Berry
-Level: 55
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Flamethrower
-- Dragon Claw
-- Rock Slide
-- Crunch
+Salamence @ Life Orb  
+Ability: Moxie  
+Level: 55  
+Tera Type: Dragon  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Adamant Nature  
+- Dragon Dance  
+- Dual Wingbeat  
+- Earthquake  
+- Outrage
 
 === TRAINER_ROXANNE_1 ===
 Name: ROXANNE
@@ -6248,56 +6322,81 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 Mugshot: Yellow
 
-Wailord
-Level: 57
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rain Dance
-- Water Spout
-- Double Edge
-- Blizzard
+Spiritomb @ Sitrus Berry  
+Ability: Pressure  
+Level: 57  
+Tera Type: Ghost  
+EVs: 84 HP / 84 Atk / 86 Def / 84 SpA / 86 SpD / 84 Spe  
+Quiet Nature  
+- Shadow Ball  
+- Dark Pulse  
+- Will-O-Wisp  
+- Sucker Punch  
 
-Tentacruel
-Level: 55
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Toxic
-- Hydro Pump
-- Sludge Bomb
-- Ice Beam
+Roserade @ Leftovers  
+Ability: Poison Point  
+Level: 55  
+Shiny: Yes  
+Tera Type: Grass  
+EVs: 8 HP / 70 Def / 180 SpA / 70 SpD / 180 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Dazzling Gleam  
+- Shadow Ball  
+- Sludge Bomb  
+- Energy Ball  
 
-Ludicolo
-Level: 56
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Giga Drain
-- Surf
-- Leech Seed
-- Double Team
+Porygon-Z @ Expert Belt  
+Ability: Adaptability  
+Level: 56  
+Tera Type: Normal  
+EVs: 52 HP / 78 Def / 148 SpA / 78 SpD / 152 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Shadow Ball  
+- Tri Attack  
+- Thunderbolt  
+- Ice Beam  
 
-Whiscash
-Level: 56
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Earthquake
-- Surf
-- Amnesia
-- Hyper Beam
+Lucario @ Wise Glasses  
+Ability: Inner Focus  
+Level: 56  
+Tera Type: Fighting  
+EVs: 72 HP / 64 Def / 152 SpA / 68 SpD / 152 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Aura Sphere  
+- Dragon Pulse  
+- Flash Cannon  
+- Psychic  
 
-Gyarados
-Level: 56
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Dragon Dance
-- Earthquake
-- Hyper Beam
-- Surf
+Garchomp @ Yache Berry  
+Ability: Rough Skin  
+Level: 56  
+Tera Type: Dragon  
+EVs: 102 HP / 136 Atk / 60 Def / 74 SpD / 136 Spe  
+Jolly Nature  
+- Dragon Claw  
+- Earthquake  
+- Swords Dance  
+- Poison Jab  
 
-Milotic @ Sitrus Berry
-Level: 58
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Recover
-- Surf
-- Ice Beam
-- Toxic
+Milotic @ Flame Orb  
+Ability: Marvel Scale  
+Level: 58  
+Tera Type: Water  
+EVs: 244 HP / 252 Def / 8 SpA / 4 Spe  
+Bold Nature  
+IVs: 0 Atk  
+- Recover  
+- Mirror Coat  
+- Ice Beam  
+- Scald  
+
+
 
 === TRAINER_ANDREW ===
 Name: ANDREW
@@ -9459,47 +9558,68 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Altaria
-Level: 44
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Aerial Ace
-- Safeguard
-- Dragon Breath
-- Dragon Dance
+Altaria  
+Level: 44  
+Tera Type: Dragon  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
+- Aerial Ace  
+- Safeguard  
+- Dragon Breath  
+- Dragon Dance  
 
-Delcatty
-Level: 43
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Sing
-- Assist
-- Charm
-- Feint Attack
+Delcatty  
+Level: 43  
+Tera Type: Normal  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
+- Sing  
+- Assist  
+- Charm  
+- Feint Attack  
 
-Roselia
-Level: 44
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Magical Leaf
-- Leech Seed
-- Giga Drain
-- Toxic
+Breloom  
+Ability: Technician  
+Level: 44  
+Tera Type: Grass  
+- Bullet Seed  
+- Mach Punch  
+- Spore  
+- Focus Punch  
 
-Magneton
-Level: 41
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Supersonic
-- Thunderbolt
-- Tri Attack
-- Screech
+Magnezone @ Choice Specs  
+Ability: Sturdy  
+Level: 41  
+Tera Type: Electric  
+EVs: 150 HP / 150 Def / 150 SpD  
+IVs: 0 Atk  
+- Flash Cannon  
+- Thunderbolt  
+- Tri Attack  
+- Volt Switch  
 
-Gardevoir
-Level: 45
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Double Team
-- Calm Mind
-- Psychic
-- Future Sight
+Gallade @ Expert Belt  
+Ability: Sharpness  
+Level: 45  
+Shiny: Yes  
+Tera Type: Psychic  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Psycho Cut  
+- Close Combat  
+- Aqua Cutter  
+- Swords Dance  
+
+Shedinja @ Heavy-Duty Boots  
+Ability: Wonder Guard  
+Level: 45  
+Tera Type: Bug  
+EVs: 252 Atk / 4 SpA / 252 Spe  
+Naughty Nature  
+- Swords Dance  
+- Leech Life  
+- Shadow Claw  
+- Shadow Ball  
 
 === TRAINER_BRENDAN_ROUTE_103_MUDKIP ===
 Name: BRENDAN
@@ -9508,13 +9628,13 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Treecko
+Torchic
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Torchic
+Treecko
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -9525,19 +9645,29 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Slugma  
+Level: 18  
+Tera Type: Fire  
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe  
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Wingull  
+Level: 18  
+Tera Type: Water  
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe  
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Combusken  
+Ability: Blaze  
+Level: 20  
+Tera Type: Fire  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+
+Grovyle  
+Level: 20  
+Tera Type: Grass  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+
 
 === TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
 Name: BRENDAN
@@ -9546,19 +9676,28 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Slugma  
+Level: 29  
+Tera Type: Fire  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
 
-Pelipper
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Pelipper  
+Level: 29  
+Tera Type: Water  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
 
-Grovyle
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Combusken  
+Ability: Blaze  
+Level: 31  
+Tera Type: Fire 
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe   
+
+Grovyle  
+Level: 31  
+Tera Type: Grass  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
 
 === TRAINER_BRENDAN_ROUTE_103_TREECKO ===
 Name: BRENDAN
@@ -9677,15 +9816,19 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Treecko
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Torchic  
+Ability: Blaze  
+Level: 5  
+Tera Type: Fire  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
 
-Torchic
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Treecko  
+Ability: Overgrow  
+Level: 5  
+Tera Type: Grass  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
 
 === TRAINER_MAY_ROUTE_110_MUDKIP ===
 Name: MAY
@@ -9694,19 +9837,31 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Slugma  
+Ability: Magma Armor  
+Level: 18  
+Tera Type: Fire  
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe  
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Wingull  
+Ability: Keen Eye  
+Level: 18  
+Tera Type: Water  
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe  
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Combusken  
+Ability: Blaze  
+Level: 20  
+Tera Type: Fire  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+
+Grovyle  
+Ability: Overgrow  
+Level: 20  
+Tera Type: Grass  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
 
 === TRAINER_MAY_ROUTE_119_MUDKIP ===
 Name: MAY
@@ -9715,19 +9870,31 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Slugma  
+Ability: Magma Armor  
+Level: 29  
+Tera Type: Fire  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
 
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Pelipper  
+Ability: Keen Eye  
+Level: 29  
+Tera Type: Water  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
 
-Grovyle
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Combusken  
+Ability: Blaze  
+Level: 31  
+Tera Type: Fire  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
+
+Grovyle  
+Ability: Overgrow  
+Level: 31  
+Tera Type: Grass  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
 
 === TRAINER_MAY_ROUTE_103_TREECKO ===
 Name: MAY
@@ -10857,7 +11024,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Smart Trainer
 
 Lotad
 Level: 13
@@ -10874,11 +11041,15 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Smart Trainer
 
 Wingull
 Level: 13
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Torchic
+Level: 15
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Treecko
 Level: 15
@@ -10998,11 +11169,15 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Force Setup First Turn
+AI: Smart Trainer
 
 Wingull
 Level: 13
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Torchic
+Level: 15
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Treecko
 Level: 15
@@ -12047,11 +12222,32 @@ Pic: Wally
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Ralts
-Level: 16
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Wynaut @ Focus Sash  
+Ability: Shadow Tag  
+Level: 16  
+Tera Type: Psychic  
+EVs: 252 HP / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Counter  
+- Mirror Coat  
+- Destiny Bond  
+- Encore  
+
+Ralts (M) @ Eviolite  
+Ability: Synchronize  
+Level: 20  
+Shiny: Yes  
+Tera Type: Psychic  
+EVs: 252 HP / 4 Def / 252 SpD  
+Calm Nature  
+IVs: 0 Atk  
+- Dragon Rage  
+- Reflect  
+- Light Screen  
+- Substitute  
 
 === TRAINER_WALLY_VR_2 ===
 Name: WALLY
@@ -12260,23 +12456,34 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Tropius
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Tropius  
+Level: 31  
+Tera Type: Grass  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
 
-Slugma
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Slugma  
+Level: 32  
+Tera Type: Fire  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
 
-Pelipper
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Pelipper  
+Level: 32  
+Tera Type: Water  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
 
-Grovyle
-Level: 34
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Blaziken  
+Ability: Blaze  
+Level: 36  
+Tera Type: Fire  
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe  
+
+Sceptile  
+Ability: Overgrow  
+Level: 36  
+Tera Type: Grass  
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe  
 
 === TRAINER_BRENDAN_LILYCOVE_TREECKO ===
 Name: BRENDAN
@@ -12335,23 +12542,34 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer
 
-Tropius
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Tropius  
+Level: 31  
+Tera Type: Grass  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
 
-Slugma
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Slugma  
+Level: 32  
+Tera Type: Fire  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
 
-Pelipper
-Level: 32
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Pelipper  
+Level: 32  
+Tera Type: Water  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
 
-Grovyle
-Level: 34
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Blaziken  
+Ability: Blaze  
+Level: 36  
+Tera Type: Fire  
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe  
+
+Sceptile  
+Ability: Overgrow  
+Level: 36  
+Tera Type: Grass  
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe  
 
 === TRAINER_MAY_LILYCOVE_TREECKO ===
 Name: MAY
