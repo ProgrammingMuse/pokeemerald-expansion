@@ -22,6 +22,7 @@ LavaridgeTown_Mart_Pokemart:
 	.2byte ITEM_REVIVE
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_X_SPEED
+	.2byte ITEM_RARE_CANDY
 	pokemartlistend
 
 LavaridgeTown_Mart_EventScript_ExpertM::
