@@ -114,12 +114,16 @@ static EWRAM_DATA u8 sPurchaseHistoryId = 0;
 EWRAM_DATA struct ItemSlot gMartPurchaseHistory[SMARTSHOPPER_NUM_ITEMS] = {0};
 
 static void Task_ShopMenu(u8 taskId);
+static void Task_CustomShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
 static void CB2_InitBuyMenu(void);
 static void Task_GoToBuyOrSellMenu(u8 taskId);
 static void MapPostLoadHook_ReturnToShopMenu(void);
 static void Task_ReturnToShopMenu(u8 taskId);
+static void MapPostLoadHook_GoToCustomShopMenu(void);
+static void Task_GoToCustomShopMenu(u8 taskId);
 static void ShowShopMenuAfterExitingBuyOrSellMenu(u8 taskId);
+static void ShowCustomShopMenu(u8 taskId);
 static void BuyMenuDrawGraphics(void);
 static void BuyMenuAddScrollIndicatorArrows(void);
 static void Task_BuyMenu(u8 taskId);
@@ -154,6 +158,11 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterDecorationPurchase(u8 taskId);
 static void Task_HandleShopMenuBuy(u8 taskId);
 static void Task_HandleShopMenuSell(u8 taskId);
+static void Task_HandleShopMenuCustomStore(u8 taskId);
+static void Task_HandleCustomStoreMegas(u8 taskId);
+static void Task_HandleCustomStoreMints(u8 taskId);
+static void Task_HandleCustomStoreEvolution(u8 taskId);
+static void Task_HandleCustomStoreBattle(u8 taskId);
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list);
 static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y);
 
@@ -166,6 +175,7 @@ static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 static const struct MenuAction sShopMenuActions_BuySellQuit[] =
 {
     { gText_ShopBuy, {.void_u8=Task_HandleShopMenuBuy} },
+    { gText_ShopCustomStore, {.void_u8=Task_HandleShopMenuCustomStore} }, // New option
     { gText_ShopSell, {.void_u8=Task_HandleShopMenuSell} },
     { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
 };
@@ -173,8 +183,69 @@ static const struct MenuAction sShopMenuActions_BuySellQuit[] =
 static const struct MenuAction sShopMenuActions_BuyQuit[] =
 {
     { gText_ShopBuy, {.void_u8=Task_HandleShopMenuBuy} },
+    { gText_ShopCustomStore, {.void_u8=Task_HandleShopMenuCustomStore} }, // New option
     { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
 };
+
+/*
+// Handler for Custom Store menu option
+static void Task_HandleShopMenuCustomStore(u8 taskId)
+{
+    // Show the custom store submenu
+    u8 windowId = AddWindow(&sShopMenuWindowTemplates[WIN_BUY_SELL_QUIT]);
+    PrintMenuTable(windowId, ARRAY_COUNT(sCustomStoreMenuActions), sCustomStoreMenuActions);
+    InitMenuInUpperLeftCornerNormal(windowId, ARRAY_COUNT(sCustomStoreMenuActions), 0);
+    PutWindowTilemap(windowId);
+    CopyWindowToVram(windowId, COPYWIN_MAP);
+    // Handle input for submenu
+    // For now, use the same input handler as the main menu
+    sMartInfo.windowId = windowId;
+    sMartInfo.menuActions = sCustomStoreMenuActions;
+    CreateTask(Task_ShopMenu, 8);
+
+};
+*/
+
+// Custom Store submenu actions
+static const struct MenuAction sShopMenuActions_CUSTOM[] =
+{
+    { gText_CustomStoreMegas, {.void_u8=Task_HandleCustomStoreMegas} },
+    { gText_CustomStoreMints, {.void_u8=Task_HandleCustomStoreMints} },
+    { gText_CustomStoreEvolution, {.void_u8=Task_HandleCustomStoreEvolution} },
+    { gText_CustomStoreBattle, {.void_u8=Task_HandleCustomStoreBattle} }
+};
+
+// Extern declarations for custom item lists
+extern const u16 Custom_Pokemart_Mega[];
+extern const u16 Custom_Pokemart_Mints[];
+extern const u16 Custom_Pokemart_Evolution[];
+extern const u16 Custom_Pokemart_Battle[];
+
+// Custom submenu handlers to display item lists
+static void Task_HandleCustomStoreMegas(u8 taskId)
+{
+    SetShopItemsForSale(Custom_Pokemart_Mega);
+    CB2_InitBuyMenu();
+}
+
+static void Task_HandleCustomStoreMints(u8 taskId)
+{
+    SetShopItemsForSale(Custom_Pokemart_Mints);
+    CB2_InitBuyMenu();
+}
+
+static void Task_HandleCustomStoreEvolution(u8 taskId)
+{
+    SetShopItemsForSale(Custom_Pokemart_Evolution);
+    CB2_InitBuyMenu();
+}
+
+static void Task_HandleCustomStoreBattle(u8 taskId)
+{
+    SetShopItemsForSale(Custom_Pokemart_Battle);
+    CB2_InitBuyMenu();
+}
+
 
 static const struct WindowTemplate sShopMenuWindowTemplates[] =
 {
@@ -183,7 +254,7 @@ static const struct WindowTemplate sShopMenuWindowTemplates[] =
         .tilemapLeft = 2,
         .tilemapTop = 1,
         .width = 9,
-        .height = 6,
+        .height = 8,
         .paletteNum = 15,
         .baseBlock = 0x0008,
     },
@@ -372,12 +443,45 @@ static u8 CreateShopMenu(u8 martType)
     return CreateTask(Task_ShopMenu, 8);
 }
 
+static u8 CreateCustomShopMenu(u8 martType)
+{
+    int numMenuItems;
+
+    LockPlayerFieldControls();
+    sMartInfo.martType = martType;
+
+    if (martType == MART_TYPE_NORMAL)
+    {
+        struct WindowTemplate winTemplate = sShopMenuWindowTemplates[WIN_BUY_SELL_QUIT];
+        winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuySellQuit, ARRAY_COUNT(sShopMenuActions_CUSTOM));
+        sMartInfo.windowId = AddWindow(&winTemplate);
+        sMartInfo.menuActions = sShopMenuActions_CUSTOM;
+        numMenuItems = ARRAY_COUNT(sShopMenuActions_CUSTOM);
+    }
+    else
+    {
+        struct WindowTemplate winTemplate = sShopMenuWindowTemplates[WIN_BUY_QUIT];
+        winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuyQuit, ARRAY_COUNT(sShopMenuActions_CUSTOM));
+        sMartInfo.windowId = AddWindow(&winTemplate);
+        sMartInfo.menuActions = sShopMenuActions_CUSTOM;
+        numMenuItems = ARRAY_COUNT(sShopMenuActions_CUSTOM);
+    }
+
+    SetStandardWindowBorderStyle(sMartInfo.windowId, FALSE);
+    PrintMenuTable(sMartInfo.windowId, numMenuItems, sMartInfo.menuActions);
+    InitMenuInUpperLeftCornerNormal(sMartInfo.windowId, numMenuItems, 0);
+    PutWindowTilemap(sMartInfo.windowId);
+    CopyWindowToVram(sMartInfo.windowId, COPYWIN_MAP);
+
+    return CreateTask(Task_ShopMenu, 8);
+}
+
 static void SetShopMenuCallback(void (* callback)(void))
 {
     sMartInfo.callback = callback;
 }
 
-static void SetShopItemsForSale(const u16 *items)
+void SetShopItemsForSale(const u16 *items)
 {
     u16 i = 0;
 
@@ -393,6 +497,23 @@ static void SetShopItemsForSale(const u16 *items)
 }
 
 static void Task_ShopMenu(u8 taskId)
+{
+    s8 inputCode = Menu_ProcessInputNoWrap();
+    switch (inputCode)
+    {
+    case MENU_NOTHING_CHOSEN:
+        break;
+    case MENU_B_PRESSED:
+        PlaySE(SE_SELECT);
+        Task_HandleShopMenuQuit(taskId);
+        break;
+    default:
+        sMartInfo.menuActions[inputCode].func.void_u8(taskId);
+        break;
+    }
+}
+
+static void Task_CustomShopMenu(u8 taskId)
 {
     s8 inputCode = Menu_ProcessInputNoWrap();
     switch (inputCode)
@@ -433,6 +554,27 @@ static void Task_HandleShopMenuSell(u8 taskId)
     FadeScreen(FADE_TO_BLACK, 0);
 }
 
+static void Task_HandleShopMenuCustomStore(u8 taskId)
+{
+
+    gTasks[taskId].func = Task_GoToCustomShopMenu;
+    
+}
+
+/*
+static void Task_MainToCustomMenu(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        RemoveMoneyLabelObject();
+        BuyMenuFreeMemory();
+        SetMainCallback2(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+*/
+
+
 void CB2_ExitSellMenu(void)
 {
     gFieldCallback = MapPostLoadHook_ReturnToShopMenu;
@@ -467,6 +609,12 @@ static void MapPostLoadHook_ReturnToShopMenu(void)
     CreateTask(Task_ReturnToShopMenu, 8);
 }
 
+static void MapPostLoadHook_ReturnToCustomShopMenu(void)
+{
+    FadeInFromBlack();
+    CreateTask(Task_GoToCustomShopMenu, 8);
+}
+
 static void Task_ReturnToShopMenu(u8 taskId)
 {
     if (IsWeatherNotFadingIn() == TRUE)
@@ -478,9 +626,27 @@ static void Task_ReturnToShopMenu(u8 taskId)
     }
 }
 
+static void Task_GoToCustomShopMenu(u8 taskId)
+{
+    if (IsWeatherNotFadingIn() == TRUE)
+    {
+        if (sMartInfo.martType == MART_TYPE_DECOR2)
+            DisplayItemMessageOnField(taskId, gText_CanIHelpWithAnythingElse, ShowCustomShopMenu);
+        else
+            DisplayItemMessageOnField(taskId, gText_AnythingElseICanHelp, ShowCustomShopMenu);
+    }
+    //ShowCustomShopMenu(taskId);
+}
+
 static void ShowShopMenuAfterExitingBuyOrSellMenu(u8 taskId)
 {
     CreateShopMenu(sMartInfo.martType);
+    DestroyTask(taskId);
+}
+
+static void ShowCustomShopMenu(u8 taskId)
+{
+    CreateCustomShopMenu(sMartInfo.martType);
     DestroyTask(taskId);
 }
 

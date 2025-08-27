@@ -8,6 +8,8 @@ PetalburgCity_Mart_EventScript_Clerk::
 	waitmessage
 	goto_if_set FLAG_PETALBURG_MART_EXPANDED_ITEMS, PetalburgCity_Mart_EventScript_ExpandedItems
 	pokemart PetalburgCity_Mart_Pokemart_Basic
+	msgbox gText_OpenCustomStore, MSGBOX_DEFAULT
+	pokemart PetalburgCity_Mart_Pokemart_Custom
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -30,6 +32,8 @@ PetalburgCity_Mart_Pokemart_Basic:
 
 PetalburgCity_Mart_EventScript_ExpandedItems::
 	pokemart PetalburgCity_Mart_Pokemart_Expanded
+	msgbox gText_OpenCustomStore, MSGBOX_DEFAULT
+	pokemart PetalburgCity_Mart_Pokemart_Custom
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -50,6 +54,31 @@ PetalburgCity_Mart_Pokemart_Expanded:
 	.2byte ITEM_X_DEFENSE
 	.2byte ITEM_ORANGE_MAIL
 	.2byte ITEM_RARE_CANDY
+	pokemartlistend
+
+	.align 2
+PetalburgCity_Mart_Pokemart_Custom:
+	.2byte ITEM_MEGA_RING
+	.2byte ITEM_SCEPTILITE
+	.2byte ITEM_BLAZIKENITE
+	.2byte ITEM_SWAMPERTITE
+	.2byte ITEM_GARDEVOIRITE
+	.2byte ITEM_SABLENITE
+	.2byte ITEM_MAWILITE
+	.2byte ITEM_AGGRONITE
+	.2byte ITEM_MEDICHAMITE
+	.2byte ITEM_MANECTITE
+	.2byte ITEM_SHARPEDONITE
+	.2byte ITEM_CAMERUPTITE
+	.2byte ITEM_ALTARIANITE
+	.2byte ITEM_BANETTITE
+	.2byte ITEM_ABSOLITE
+	.2byte ITEM_GLALITITE
+	.2byte ITEM_SALAMENCITE
+	.2byte ITEM_METAGROSSITE
+	.2byte ITEM_LATIASITE
+	.2byte ITEM_LATIOSITE
+	.2byte ITEM_GALLADITE
 	pokemartlistend
 
 PetalburgCity_Mart_EventScript_Woman::

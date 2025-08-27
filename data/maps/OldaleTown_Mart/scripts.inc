@@ -8,6 +8,8 @@ OldaleTown_Mart_EventScript_Clerk::
 	waitmessage
 	goto_if_set FLAG_ADVENTURE_STARTED, OldaleTown_Mart_ExpandedItems
 	pokemart OldaleTown_Mart_Pokemart_Basic
+	msgbox gText_OpenCustomStore, MSGBOX_DEFAULT
+	pokemart OldaleTown_Mart_Pokemart_Custom
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -23,6 +25,8 @@ OldaleTown_Mart_Pokemart_Basic:
 
 OldaleTown_Mart_ExpandedItems::
 	pokemart OldaleTown_Mart_Pokemart_Expanded
+	msgbox gText_OpenCustomStore, MSGBOX_DEFAULT
+	pokemart OldaleTown_Mart_Pokemart_Custom
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -35,6 +39,31 @@ OldaleTown_Mart_Pokemart_Expanded:
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_RARE_CANDY
+	pokemartlistend
+
+	.align 2
+OldaleTown_Mart_Pokemart_Custom:
+	.2byte ITEM_MEGA_RING
+	.2byte ITEM_SCEPTILITE
+	.2byte ITEM_BLAZIKENITE
+	.2byte ITEM_SWAMPERTITE
+	.2byte ITEM_GARDEVOIRITE
+	.2byte ITEM_SABLENITE
+	.2byte ITEM_MAWILITE
+	.2byte ITEM_AGGRONITE
+	.2byte ITEM_MEDICHAMITE
+	.2byte ITEM_MANECTITE
+	.2byte ITEM_SHARPEDONITE
+	.2byte ITEM_CAMERUPTITE
+	.2byte ITEM_ALTARIANITE
+	.2byte ITEM_BANETTITE
+	.2byte ITEM_ABSOLITE
+	.2byte ITEM_GLALITITE
+	.2byte ITEM_SALAMENCITE
+	.2byte ITEM_METAGROSSITE
+	.2byte ITEM_LATIASITE
+	.2byte ITEM_LATIOSITE
+	.2byte ITEM_GALLADITE
 	pokemartlistend
 
 OldaleTown_Mart_EventScript_Woman::
