@@ -165,6 +165,8 @@ static void Task_HandleCustomStoreEvolution(u8 taskId);
 static void Task_HandleCustomStoreBattle(u8 taskId);
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list);
 static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y);
+static void ClearItemPurchases(void);
+static void SetShopMenuCallback(void (*callback)(void));
 
 static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 {
@@ -216,35 +218,122 @@ static const struct MenuAction sShopMenuActions_CUSTOM[] =
 };
 
 // Extern declarations for custom item lists
-extern const u16 Custom_Pokemart_Mega[];
-extern const u16 Custom_Pokemart_Mints[];
-extern const u16 Custom_Pokemart_Evolution[];
-extern const u16 Custom_Pokemart_Battle[];
+// Define the custom item lists in shop.c
 
-// Custom submenu handlers to display item lists
-static void Task_HandleCustomStoreMegas(u8 taskId)
-{
-    SetShopItemsForSale(Custom_Pokemart_Mega);
-    CB2_InitBuyMenu();
-}
+const u16 Custom_Pokemart_Mega[] = {
+    ITEM_MEGA_RING,
+    ITEM_SCEPTILITE,
+    ITEM_BLAZIKENITE,
+    ITEM_SWAMPERTITE,
+    ITEM_GARDEVOIRITE,
+    ITEM_SABLENITE,
+    ITEM_MAWILITE,
+    ITEM_AGGRONITE,
+    ITEM_MEDICHAMITE,
+    ITEM_MANECTITE,
+    ITEM_SHARPEDONITE,
+    ITEM_CAMERUPTITE,
+    ITEM_ALTARIANITE,
+    ITEM_BANETTITE,
+    ITEM_ABSOLITE,
+    ITEM_GLALITITE,
+    ITEM_SALAMENCITE,
+    ITEM_METAGROSSITE,
+    ITEM_LATIASITE,
+    ITEM_LATIOSITE,
+    ITEM_GALLADITE,
+    ITEM_NONE // Terminator
+};
 
-static void Task_HandleCustomStoreMints(u8 taskId)
-{
-    SetShopItemsForSale(Custom_Pokemart_Mints);
-    CB2_InitBuyMenu();
-}
+const u16 Custom_Pokemart_Mints[] = {
+    ITEM_LONELY_MINT,
+    ITEM_ADAMANT_MINT,
+    ITEM_NAUGHTY_MINT,
+    ITEM_BRAVE_MINT,
+    ITEM_BOLD_MINT,
+    ITEM_IMPISH_MINT,
+    ITEM_LAX_MINT,
+    ITEM_RELAXED_MINT,
+    ITEM_MODEST_MINT,
+    ITEM_MILD_MINT,
+    ITEM_RASH_MINT,
+    ITEM_QUIET_MINT,
+    ITEM_CALM_MINT,
+    ITEM_GENTLE_MINT,
+    ITEM_CAREFUL_MINT,
+    ITEM_SASSY_MINT,
+    ITEM_TIMID_MINT,
+    ITEM_HASTY_MINT,
+    ITEM_JOLLY_MINT,
+    ITEM_NAIVE_MINT,
+    ITEM_SERIOUS_MINT,
+    ITEM_NONE // Terminator
+};
 
-static void Task_HandleCustomStoreEvolution(u8 taskId)
-{
-    SetShopItemsForSale(Custom_Pokemart_Evolution);
-    CB2_InitBuyMenu();
-}
+const u16 Custom_Pokemart_Evolution[] = {
+    ITEM_LINKING_CORD,
+    ITEM_FIRE_STONE,
+    ITEM_WATER_STONE,
+    ITEM_THUNDER_STONE,
+    ITEM_LEAF_STONE,
+    ITEM_ICE_STONE,
+    ITEM_SUN_STONE,
+    ITEM_MOON_STONE,
+    ITEM_SHINY_STONE,
+    ITEM_DUSK_STONE,
+    ITEM_DAWN_STONE,
+    ITEM_SWEET_APPLE,
+    ITEM_TART_APPLE,
+    ITEM_SYRUPY_APPLE,
+    ITEM_CRACKED_POT,
+    ITEM_CHIPPED_POT,
+    ITEM_GALARICA_CUFF,
+    ITEM_GALARICA_WREATH,
+    ITEM_DRAGON_SCALE,
+    ITEM_UPGRADE,
+    ITEM_DUBIOUS_DISC,
+    ITEM_PROTECTOR,
+    ITEM_ELECTIRIZER,
+    ITEM_MAGMARIZER,
+    ITEM_REAPER_CLOTH,
+    ITEM_PRISM_SCALE,
+    ITEM_WHIPPED_DREAM,
+    ITEM_SACHET,
+    ITEM_OVAL_STONE,
+    ITEM_STRAWBERRY_SWEET,
+    ITEM_BLACK_AUGURITE,
+    ITEM_PEAT_BLOCK,
+    ITEM_UNREMARKABLE_TEACUP,
+    ITEM_MASTERPIECE_TEACUP,
+    ITEM_EVERSTONE,
+    ITEM_NONE // Terminator
+};
 
-static void Task_HandleCustomStoreBattle(u8 taskId)
-{
-    SetShopItemsForSale(Custom_Pokemart_Battle);
-    CB2_InitBuyMenu();
-}
+const u16 Custom_Pokemart_Battle[] = {
+    ITEM_ABILITY_CAPSULE,
+    ITEM_ABILITY_PATCH,
+    ITEM_SOOTHE_BELL,
+    ITEM_FLAME_PLATE,
+    ITEM_SPLASH_PLATE,
+    ITEM_ZAP_PLATE,
+    ITEM_MEADOW_PLATE,
+    ITEM_ICICLE_PLATE,
+    ITEM_FIST_PLATE,
+    ITEM_TOXIC_PLATE,
+    ITEM_EARTH_PLATE,
+    ITEM_SKY_PLATE,
+    ITEM_MIND_PLATE,
+    ITEM_INSECT_PLATE,
+    ITEM_STONE_PLATE,
+    ITEM_SPOOKY_PLATE,
+    ITEM_DRACO_PLATE,
+    ITEM_DREAD_PLATE,
+    ITEM_IRON_PLATE,
+    ITEM_PIXIE_PLATE,
+    ITEM_NONE // Terminator
+};
+
+
 
 
 static const struct WindowTemplate sShopMenuWindowTemplates[] =
@@ -453,7 +542,7 @@ static u8 CreateCustomShopMenu(u8 martType)
     if (martType == MART_TYPE_NORMAL)
     {
         struct WindowTemplate winTemplate = sShopMenuWindowTemplates[WIN_BUY_SELL_QUIT];
-        winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuySellQuit, ARRAY_COUNT(sShopMenuActions_CUSTOM));
+        winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuySellQuit, ARRAY_COUNT(sShopMenuActions_BuySellQuit));
         sMartInfo.windowId = AddWindow(&winTemplate);
         sMartInfo.menuActions = sShopMenuActions_CUSTOM;
         numMenuItems = ARRAY_COUNT(sShopMenuActions_CUSTOM);
@@ -545,6 +634,8 @@ static void Task_HandleShopMenuBuy(u8 taskId)
     FadeScreen(FADE_TO_BLACK, 0);
 }
 
+
+
 static void Task_HandleShopMenuSell(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -559,6 +650,62 @@ static void Task_HandleShopMenuCustomStore(u8 taskId)
 
     gTasks[taskId].func = Task_GoToCustomShopMenu;
     
+}
+
+static void Task_HandleCustomStoreMegas(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    SetShopItemsForSale(Custom_Pokemart_Mega);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+
+    tCallbackHi = (u32)CB2_InitBuyMenu >> 16;
+    tCallbackLo = (u32)CB2_InitBuyMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
+}
+
+static void Task_HandleCustomStoreEvolution(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    
+    SetShopItemsForSale(Custom_Pokemart_Evolution); // <-- correct list
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+
+    tCallbackHi = (u32)CB2_InitBuyMenu >> 16;
+    tCallbackLo = (u32)CB2_InitBuyMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
+}
+
+static void Task_HandleCustomStoreMints(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    
+    SetShopItemsForSale(Custom_Pokemart_Mints);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+
+    tCallbackHi = (u32)CB2_InitBuyMenu >> 16;
+    tCallbackLo = (u32)CB2_InitBuyMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
+}
+
+static void Task_HandleCustomStoreBattle(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    SetShopItemsForSale(Custom_Pokemart_Battle);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+
+    tCallbackHi = (u32)CB2_InitBuyMenu >> 16;
+    tCallbackLo = (u32)CB2_InitBuyMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
 }
 
 /*
@@ -1467,6 +1614,8 @@ void CreatePokemartMenu(const u16 *itemsForSale)
     ClearItemPurchases();
     SetShopMenuCallback(ScriptContext_Enable);
 }
+
+
 
 void CreateDecorationShop1Menu(const u16 *itemsForSale)
 {

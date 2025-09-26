@@ -8,8 +8,6 @@ OldaleTown_Mart_EventScript_Clerk::
 	waitmessage
 	goto_if_set FLAG_ADVENTURE_STARTED, OldaleTown_Mart_ExpandedItems
 	pokemart OldaleTown_Mart_Pokemart_Basic
-	msgbox gText_OpenCustomStore, MSGBOX_DEFAULT
-	pokemart OldaleTown_Mart_Pokemart_Custom
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
