@@ -9465,22 +9465,56 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Name: TABITHA
 Class: Magma Admin
 Pic: Magma Admin
-Gender: Male
+Gender: Female
 Music: Magma
 Double Battle: No
 AI: Check Bad Move
 
-Camerupt
-Level: 36
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Camerupt @ Chesto Berry  
+Ability: Solid Rock  
+Level: 36  
+Tera Type: Fire  
+Modest Nature  
+IVs: 12 HP / 0 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Ancient Power  
+- Earth Power  
+- Eruption  
+- Rest  
 
-Mightyena
-Level: 38
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Mightyena  
+Ability: Moxie  
+Level: 38  
+Happiness: 0  
+Tera Type: Dark  
+Adamant Nature  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Crunch  
+- Frustration  
+- Fire Fang  
+- Play Rough  
 
-Golbat
-Level: 40
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Golbat  
+Level: 40  
+Tera Type: Poison  
+Jolly Nature  
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Haze  
+- Poison Fang  
+- Acrobatics  
+- Pursuit  
+
+Coalossal  
+Ability: Steam Engine  
+Level: 42  
+Tera Type: Rock  
+Quiet Nature  
+IVs: 12 HP / 12 Def / 12 SpA / 12 SpD / 12 Spe  
+- Body Press  
+- Flamethrower  
+- Heat Crash  
+- Power Gem  
+
+
 
 === TRAINER_EDWIN_2 ===
 Name: EDWIN
@@ -11123,7 +11157,7 @@ Numel
 Level: 22
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-Zubat
+Carkol  
 Level: 22
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
@@ -11193,17 +11227,38 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Basic Trainer
 
-Mightyena
-Level: 37
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Mightyena  
+Ability: Intimidate  
+Level: 37  
+Jolly Nature  
+IVs: 18 HP / 18 Def / 18 SpA / 18 SpD / 18 Spe  
+- Yawn  
+- Psychic Fangs  
+- Crunch  
+- Taunt  
 
-Crobat
-Level: 38
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Crobat  
+Level: 38  
+IVs: 18 HP / 18 Def / 18 SpA / 18 SpD / 18 Spe  
+- Acrobatics  
+- Tailwind  
+- Detect  
+- Poison Fang  
 
-Camerupt
-Level: 39
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Camerupt  
+Level: 39  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
+
+Groudon @ Salac Berry  
+Ability: Drought  
+Level: 40  
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe  
+Tera Type: Dragon  
+Adamant Nature  
+- Precipice Blades  
+- Bulk Up  
+- Dragon Tail  
+- Heat Crash  
 
 === TRAINER_MAXIE_MT_CHIMNEY ===
 Name: MAXIE
@@ -13718,21 +13773,38 @@ Music: Magma
 Double Battle: No
 AI: Check Bad Move
 
-Numel
-Level: 26
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Numel  
+Level: 26  
+Tera Type: Fire  
+IVs: 9 HP / 0 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe  
 
-Mightyena
-Level: 28
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Mightyena  
+Ability: Intimidate  
+Level: 28  
+IVs: 9 HP / 9 Def / 9 SpA / 9 SpD / 9 Spe  
+- Crunch  
+- Fire Fang  
+- Ice Fang  
+- Thunder Fang  
 
-Zubat
-Level: 30
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Golbat  
+Ability: Infiltrator  
+Level: 30  
+- Dual Wingbeat  
+- Detect  
+- Poison Fang  
+- Pursuit  
 
-Camerupt
-Level: 33
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Carkol  
+Ability: Steam Engine  
+Level: 33  
+Rash Nature  
+- Stone Edge  
+- Scorching Sands  
+- Fire Blast  
+- Meteor Beam  
+
+
 
 === TRAINER_DARCY ===
 Name: DARCY

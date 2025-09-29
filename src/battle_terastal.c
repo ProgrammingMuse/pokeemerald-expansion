@@ -104,7 +104,7 @@ bool32 CanTerastallize(u32 battler)
         return FALSE;
 
     // Every check passed!
-    return TRUE;
+    return FALSE; // at default this is true, but we are turning of tera for now because we don't want it in the current build
 }
 
 // Returns a battler's Tera type.
