@@ -1764,7 +1764,7 @@
               {
                 "min_level": 6,
                 "max_level": 8,
-                "species": "SPECIES_DEINO"
+                "species": "SPECIES_GOLETT"
               },
               {
                 "min_level": 6,
@@ -2419,17 +2419,17 @@
               {
                 "min_level": 5,
                 "max_level": 8,
-                "species": "SPECIES_DEINO"
+                "species": "SPECIES_GOLETT"
               },
               {
                 "min_level": 5,
                 "max_level": 8,
-                "species": "SPECIES_DEINO"
+                "species": "SPECIES_GOLETT"
               },
               {
                 "min_level": 5,
                 "max_level": 8,
-                "species": "SPECIES_DEINO"
+                "species": "SPECIES_GOLETT"
               },
               {
                 "min_level": 5,
